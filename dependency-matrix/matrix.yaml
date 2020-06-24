@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: ccycloud-org-sandbox
+  repo: mct-app
+  url: https://github.com/ccycloud-org-sandbox/mct-app.git
+  version: ""
+  versionURL: ""

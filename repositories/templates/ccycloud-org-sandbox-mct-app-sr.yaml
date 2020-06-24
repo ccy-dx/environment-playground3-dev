@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: ccycloud-org-sandbox
+    provider: github
+    repository: mct-app
+  name: ccycloud-org-sandbox-mct-app
+spec:
+  description: Imported application for ccycloud-org-sandbox/mct-app
+  httpCloneURL: https://github.com/ccycloud-org-sandbox/mct-app.git
+  org: ccycloud-org-sandbox
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: mct-app
+  scheduler:
+    kind: ""
+    name: ""
+  url: git@github.com:ccycloud-org-sandbox/mct-app.git
