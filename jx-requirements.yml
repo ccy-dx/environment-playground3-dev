@@ -1,39 +1,85 @@
 autoUpdate:
   enabled: false
   schedule: ""
+bootConfigURL: https://github.com/cloudbees/cloudbees-jenkins-x-boot-config.git
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
+  clusterName: playground3
+  devEnvApprovers:
+  - gh-tt01-u02
+  - gh-tt01-u03
+  environmentGitOwner: ccycloud-org-sandbox
   environmentGitPublic: true
-  project: ""
-  azure: {}
-  provider: gke
-  zone: ""
-gitops: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  provider: eks
+  region: eu-west-1
+  registry: 016340029362.dkr.ecr.eu-west-1.amazonaws.com
 environments:
-  - key: dev
-  - key: staging
-  - key: production
+- ingress:
+    domain: 54.72.63.4.nip.io
+    externalDNS: false
+    ignoreLoadBalancer: true
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-playground3-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-playground3-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-playground3-production
+gitops: true
 ingress:
-  domain: ""
+  domain: 54.72.63.4.nip.io
   externalDNS: false
+  ignoreLoadBalancer: true
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
 kaniko: true
-secretStorage: vault
+repository: nexus
+secretStorage: local
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
     enabled: true
-    url: ""
+    url: s3://ccycloud-logging-playground3-eu-west-1
   reports:
     enabled: true
-    url: ""
+    url: s3://ccycloud-logging-playground3-eu-west-1
   repository:
     enabled: true
-    url: ""
+    url: s3://playground3-repository-b5534c40-8156-44af-babd-222ca3f35aad
+terraform: true
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: 2.1.46+cjxd.10
+  ref: v0.0.35
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
 webhook: lighthouse

@@ -1,0 +1,10 @@
+adminUser:
+  password: local:playground3/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: gh_tt01_u01@currencycloud.com
+  token: local:playground3/pipelineUser:token
+  username: gh-tt01-u01
+prow:
+  hmacToken: local:playground3/prow:hmacToken
